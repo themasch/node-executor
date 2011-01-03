@@ -1,0 +1,24 @@
+===
+API
+===
+
+var ex = new Executor(function(arg1, arg2) {
+    var self = this; // Tip: save your object reference!
+    // to what you have to do
+    // this is bind to the executor
+    do.async.stuff(function() {
+        self.emit('job_done'); // this starts the next job    
+    });
+}
+
+ex.push([arg1, arg2]); // add new arguments for execution
+
+ex.startExecution(x); // start x queues
+
+======
+Events
+======
+
+- all_queues_done: All running queues are done
+- job_queue_done:  A running queue is done (no more arguments left)
+- job_done: you emit it, you should know it!
