@@ -1,5 +1,5 @@
 var Events = require('events'), 
-    sys    = require('sys');
+    util = require('util');
 /** 
  * Author: Mark Schmale
  */
@@ -23,7 +23,7 @@ module.exports = Executor = function(func) {
         this.execute();
     });
 }
-sys.inherits(Executor, Events.EventEmitter);
+util.inherits(Executor, Events.EventEmitter);
 
 Executor.prototype.push = function(value) {
     this.queue.unshift(value);
